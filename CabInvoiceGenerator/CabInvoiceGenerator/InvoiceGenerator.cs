@@ -20,8 +20,15 @@ namespace CabInvoiceGenerator
                 return Mini_Fare;
             }
             return totalFare;
-
-
+        }
+        public double calculateFare(MultipleRides[] Ride)
+        {
+            double totalfare = 0;
+            foreach (MultipleRides Rides in Ride)
+            {
+                totalfare = totalfare + calculateFare(Rides.distance, Rides.time);
+            }
+            return totalfare;
         }
     }
 }
