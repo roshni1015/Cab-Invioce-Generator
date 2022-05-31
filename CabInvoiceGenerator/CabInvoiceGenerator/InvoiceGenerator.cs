@@ -11,9 +11,10 @@ namespace CabInvoiceGenerator
         public const double Mini_Fare = 5;
         public const double Mini_Cost_Perkm = 10;
         public const int Cost_Per_Time = 1;
-
+        public int count;
         public double calculateFare(double distance, int time)
         {
+            count++;
             double totalFare = distance * Mini_Cost_Perkm + time * Cost_Per_Time;
             if (totalFare < Mini_Fare)
             {

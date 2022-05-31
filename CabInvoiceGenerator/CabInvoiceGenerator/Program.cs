@@ -3,7 +3,7 @@ using CabInvoiceGenerator;
 
 while (true)
 {
-    Console.WriteLine("Please choose the option :\n1)Calculating Fare\n2)Calculating Aggregate for Multiple Rides");
+    Console.WriteLine("Please choose the option :\n1)Calculating Fare\n2)Calculating Aggregate for Multiple Rides\n3)Enhanced Invoice");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
@@ -19,6 +19,19 @@ while (true)
             MultipleRides[] Rides = { new MultipleRides(10, 40), new MultipleRides(20, 50) };
             double totalfare = test2.calculateFare(Rides);
             Console.WriteLine("Total Aggregate :" + totalfare);
+            Console.WriteLine();
+            Console.WriteLine("****************************************************************");
+            break;
+        case 3:
+            InvoiceGenerator test3 = new();
+            MultipleRides[] Rides1 = { new MultipleRides(10, 40), new MultipleRides(20, 50) };
+            double totalFare = test3.calculateFare(Rides1);
+            int numOfRides = test3.count;
+            double avg = totalFare / numOfRides;
+            Console.WriteLine("----------------------------------------------------------------");
+            Console.WriteLine("Total Number of rides : " + numOfRides);
+            Console.WriteLine("Total Aggregate :" + totalFare);
+            Console.WriteLine("Average of all the rides :" + avg);
             Console.WriteLine();
             Console.WriteLine("****************************************************************");
             break;
