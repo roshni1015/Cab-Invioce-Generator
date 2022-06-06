@@ -8,9 +8,9 @@ namespace CabInvoiceGenerator
 {
     public class InvoiceGenerator
     {
-        public const double Mini_Fare = 5;
-        public const double Mini_Cost_Perkm = 10;
-        public const int Cost_Per_Time = 1;
+        public double Mini_Fare = 5;
+        public double Mini_Cost_Perkm = 10;
+        public int Cost_Per_Time = 1;
         public int count;
         public double calculateFare(double distance, int time)
         {
@@ -35,11 +35,13 @@ namespace CabInvoiceGenerator
         {
             foreach (MultipleRides Rides in Ride)
             {
-
                 Console.WriteLine("Distance Travelled :" + Rides.distance);
                 Console.WriteLine("Time Taken :" + Rides.time);
                 Console.WriteLine("Fare for ride is :" + calculateFare(Rides.distance, Rides.time));
+                Console.WriteLine("-------------------------------------------");
+
             }
         }
+        
     }
 }
