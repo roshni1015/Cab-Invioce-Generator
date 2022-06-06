@@ -35,13 +35,14 @@ namespace CabInvoiceGenerator
         {
             foreach (MultipleRides Rides in Ride)
             {
-                Console.WriteLine("Distance Travelled :" + Rides.distance);
-                Console.WriteLine("Time Taken :" + Rides.time);
-                Console.WriteLine("Fare for ride is :" + calculateFare(Rides.distance, Rides.time));
+                Console.WriteLine("Distance Travelled by Cab:" + Rides.distance);
+                Console.WriteLine("Time Travelled :" + Rides.time);
+                Console.WriteLine("Total Fare for Ride is :" + calculateFare(Rides.distance, Rides.time));
                 Console.WriteLine("-------------------------------------------");
 
             }
         }
-        
+       
     }
 }
+
