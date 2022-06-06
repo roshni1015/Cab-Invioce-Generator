@@ -3,8 +3,9 @@ using CabInvoiceGenerator;
 
 while (true)
 {
-    Console.WriteLine("Please choose the option :\n1)Calculating Fare\n2)Calculating Aggregate for Multiple Rides\n3)Enhanced Invoice\n4)Invoice Service");
+    Console.WriteLine("Please choose the option :\n1)Calculating Fare\n2)Calculating Aggregate for Multiple Rides\n3)Enhanced Invoice\n4)Invoice Service\n5)Category for Rides");
     int option = Convert.ToInt16(Console.ReadLine());
+    string RideType = null;
     switch (option)
     {
         case 1:
@@ -39,7 +40,7 @@ while (true)
             InvoiceGenerator test4 = new();
             Console.WriteLine("Enter the User Id :");
             string UserId = Console.ReadLine();
-            MultipleRides[] rides2 = { new MultipleRides(10, 40), new MultipleRides(20, 50), new MultipleRides(40, 60), new MultipleRides(50, 90) };
+            MultipleRides[] rides2 = { new MultipleRides(10, 40), new MultipleRides(20, 50), new MultipleRides(40, 20), new MultipleRides(50, 10) };
             double totalFare1 = test4.calculateFare(rides2);
             int numOfRides1 = test4.count;
             double average1 = totalFare1 / numOfRides1;
@@ -52,6 +53,26 @@ while (true)
             test4.InvoiceSummary(rides2);
             Console.WriteLine("Total Aggregate :" + totalFare1);
             Console.WriteLine("Average of all the Rides :" + average1);
+            Console.WriteLine();
+            Console.WriteLine("********************************************************************");
+            break;
+        case 5:
+            InvoiceGenerator test5 = new();
+            Console.WriteLine("Enter the User Id :");
+            string UserID = Console.ReadLine();
+            MultipleRides[] rides = {new MultipleRides(1,5), new MultipleRides(20, 50), new MultipleRides(40, 20), new MultipleRides(50, 10) };
+            double totalFare2 = test5.calculateFare(rides);
+            int numOfRides2 = test5.count;
+            double average2 = totalFare2 / numOfRides2;
+            RideRepository ride = new();
+            ride.AddRides(UserID, rides);
+            Console.WriteLine("********************************************************************");
+            MultipleRides[] Ride = ride.GetRideDetails(UserID);
+            Console.WriteLine("Total Number of Rides : " + numOfRides2);
+            Console.WriteLine("-------------------------------------------");
+            test5.InvoiceSummary1(rides);
+            Console.WriteLine("Total Aggregate :" + totalFare2);
+            Console.WriteLine("Average of all the Rides :" + average2);
             Console.WriteLine();
             Console.WriteLine("********************************************************************");
             break;
